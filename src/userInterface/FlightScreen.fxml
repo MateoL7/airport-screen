@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.FlightController">
+	<children>
+		<HBox prefHeight="148.0" prefWidth="1920.0" spacing="110.0">
+			<children>
+            <MenuBar prefHeight="26.0" prefWidth="239.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Sort">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Time" />
+                        <MenuItem mnemonicParsing="false" onAction="#sortDate" text="Date" />
+                        <MenuItem mnemonicParsing="false" onAction="#sortAirline" text="Airline" />
+                        <MenuItem mnemonicParsing="false" onAction="#SortFlightNumber" text="Flight Number" />
+                        <MenuItem mnemonicParsing="false" onAction="#sortDestination" text="Destination" />
+                        <MenuItem mnemonicParsing="false" onAction="#sortGate" text="Gate" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Search">
+                  <items>
+                        <MenuItem mnemonicParsing="false" text="Time" />
+                        <MenuItem mnemonicParsing="false" text="Date" />
+                        <MenuItem mnemonicParsing="false" text="Flight Number" />
+                        <MenuItem mnemonicParsing="false" text="Destination" />
+                        <MenuItem mnemonicParsing="false" text="Gate" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Create">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#createFlightList" text="New flight list" />
+                    </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+				<Label prefHeight="111.0" prefWidth="280.0" text="Now: 9:00 am">
+               <font>
+                  <Font name="Book Antiqua" size="35.0" />
+               </font></Label>
+				<Label prefHeight="111.0" prefWidth="926.0" text="Salidas/Departures">
+					<font>
+						<Font name="Book Antiqua" size="88.0" />
+					</font>
+					<HBox.margin>
+						<Insets />
+					</HBox.margin>
+					<padding>
+						<Insets left="100.0" />
+					</padding>
+				</Label>
+			</children>
+			<padding>
+				<Insets left="10.0" />
+			</padding>
+		</HBox>
+      <TableView fx:id="flightsTable" layoutX="-1.0" layoutY="122.0" prefHeight="958.0" prefWidth="1920.0">
+        <columns>
+          <TableColumn fx:id="timeCol" prefWidth="200.79998171329498" text="Time" />
+          <TableColumn fx:id="dateCol" prefWidth="316.0000305175781" text="Date" />
+            <TableColumn fx:id="airlineCol" prefWidth="244.0" text="Airline" />
+            <TableColumn fx:id="flightNumCol" prefWidth="412.7999267578125" text="Flight Number" />
+            <TableColumn fx:id="destinationCol" minWidth="0.0" prefWidth="386.4000244140625" text="To" />
+            <TableColumn fx:id="gateCol" minWidth="1.60003662109375" prefWidth="347.9998779296875" text="Gate" />
+        </columns>
+      </TableView>
+	</children>
+</Pane>
