@@ -4,6 +4,7 @@ public class Flight implements Comparable<Flight>{
 	private String airline;
 	private int hour;
 	private int min;
+	private String time;
 	private String destination;
 	private int gate;
 	private String id;
@@ -26,6 +27,7 @@ public class Flight implements Comparable<Flight>{
 		gate = pGate;
 		id = pId;
 		date = pDate;
+		time = hour +":"+ min;
 	}
 
 
@@ -72,6 +74,20 @@ public class Flight implements Comparable<Flight>{
 	 */
 	public void setMin(int min) {
 		this.min = min;
+	}
+	
+	/** This method returns the corresponding attribute
+	 * @return the min
+	 */
+	public String getTime() {
+		return time;
+	}
+
+	/** This method changes the value of the attribute with the value of the parameter
+	 * @param min the min to set
+	 */
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 	/** This method returns the corresponding attribute
@@ -136,7 +152,7 @@ public class Flight implements Comparable<Flight>{
 	
 	@Override
 	public String toString() {
-		String report = " Time: " + hour + ":" + min;
+		String report = " Time: " + time;
 		report += " Date: " + date;
 		report += "Airline: " + airline;
 		report += " Flight Number: " + id;
