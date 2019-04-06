@@ -1,9 +1,11 @@
 package model;
 
 public class Flight implements Comparable<Flight>{
+	public final static int MAX_YEAR = 2020;
+	public final static int MIN_YEAR = 2010;
+	public final static int MAX_CODE = 90;
+	public final static int MIN_CODE = 65;
 	private String airline;
-	private int hour;
-	private int min;
 	private String time;
 	private String destination;
 	private int gate;
@@ -19,18 +21,28 @@ public class Flight implements Comparable<Flight>{
 	 * @param pId
 	 * @param pDate
 	 */
-	public Flight(String pAir, int pHour, int pMin, String pDest, int pGate, String pId, String pDate) {
+	public Flight(String pAir, String pDest, String pTime, int pGate, String pId, String pDate) {
 		airline = pAir;
-		hour = pHour;
-		min = pMin;
 		destination = pDest;
+		time = pTime;
 		gate = pGate;
 		id = pId;
 		date = pDate;
-		time = hour +":"+ min;
 	}
 
+	/**
+	 * @return the time
+	 */
+	public String getTime() {
+		return time;
+	}
 
+	/**
+	 * @param time the time to set
+	 */
+	public void setTime(String time) {
+		this.time = time;
+	}
 
 	/** This method returns the corresponding attribute
 	 * @return the airline
@@ -39,55 +51,11 @@ public class Flight implements Comparable<Flight>{
 		return airline;
 	}
 
-
-
 	/** This method changes the value of the attribute with the value of the parameter
 	 * @param airline the airline to set
 	 */
 	public void setAirline(String airline) {
 		this.airline = airline;
-	}
-
-	/** This method returns the corresponding attribute
-	 * @return the hour
-	 */
-	public int getHour() {
-		return hour;
-	}
-
-	/** This method changes the value of the attribute with the value of the parameter
-	 * @param hour the hour to set
-	 */
-	public void setHour(int hour) {
-		this.hour = hour;
-	}
-
-	/** This method returns the corresponding attribute
-	 * @return the min
-	 */
-	public int getMin() {
-		return min;
-	}
-
-	/** This method changes the value of the attribute with the value of the parameter
-	 * @param min the min to set
-	 */
-	public void setMin(int min) {
-		this.min = min;
-	}
-	
-	/** This method returns the corresponding attribute
-	 * @return the min
-	 */
-	public String getTime() {
-		return time;
-	}
-
-	/** This method changes the value of the attribute with the value of the parameter
-	 * @param min the min to set
-	 */
-	public void setTime(String time) {
-		this.time = time;
 	}
 
 	/** This method returns the corresponding attribute
@@ -149,18 +117,6 @@ public class Flight implements Comparable<Flight>{
 	public void setDate(String date) {
 		this.date = date;
 	}
-	
-	@Override
-	public String toString() {
-		String report = " Time: " + time;
-		report += " Date: " + date;
-		report += "Airline: " + airline;
-		report += " Flight Number: " + id;
-		report += " Destination: " + destination;
-		report += " Gate: " + gate;
-		return report;
-		
-	}
 
 	@Override
 	public int compareTo(Flight other) {
@@ -173,5 +129,14 @@ public class Flight implements Comparable<Flight>{
 		}
 		return comparation;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "" + airline + 
+		time + 
+		 destination +
+		 gate +
+		 id + 
+		 date;
+	}
 }
