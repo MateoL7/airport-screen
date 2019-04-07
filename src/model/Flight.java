@@ -129,14 +129,4 @@ public class Flight implements Comparable<Flight>{
 		}
 		return comparation;
 	}
-	
-	@Override
-	public String toString() {
-		return "" + airline + 
-		time + 
-		 destination +
-		 gate +
-		 id + 
-		 date;
-	}
 }

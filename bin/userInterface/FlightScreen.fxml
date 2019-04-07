@@ -21,11 +21,11 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Sort">
                   <items>
-                    <MenuItem mnemonicParsing="false" onAction="#sortTime" text="Destination" />
+                    <MenuItem mnemonicParsing="false" onAction="#sortTime" text="Time" />
                         <MenuItem mnemonicParsing="false" onAction="#sortDate" text="Date" />
                         <MenuItem mnemonicParsing="false" onAction="#sortAirline" text="Airline" />
                         <MenuItem mnemonicParsing="false" onAction="#SortFlightNumber" text="Flight Number" />
-                        <MenuItem mnemonicParsing="false" onAction="#sortDestination" text="Time" />
+                        <MenuItem mnemonicParsing="false" onAction="#sortDestination" text="Destination" />
                         <MenuItem mnemonicParsing="false" onAction="#sortGate" text="Gate" />
                   </items>
                 </Menu>
@@ -119,12 +119,12 @@
             <Font name="Book Antiqua" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="1021.0" layoutY="853.0" prefHeight="59.0" prefWidth="94.0" text="Sort:">
+      <Label layoutX="1018.0" layoutY="883.0" prefHeight="59.0" prefWidth="94.0" text="Sort:">
          <font>
             <Font name="Book Antiqua" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="1018.0" layoutY="903.0" prefHeight="59.0" prefWidth="717.0" text="1. Click on the criteria you want to sort the list by.">
+      <Label layoutX="1018.0" layoutY="936.0" prefHeight="59.0" prefWidth="717.0" text="1. Click on the criteria you want to sort the list by.">
          <font>
             <Font name="Book Antiqua" size="20.0" />
          </font>
@@ -135,6 +135,11 @@
          </font>
       </Label>
       <Label layoutX="1023.0" layoutY="656.0" prefHeight="59.0" prefWidth="819.0" text="1. Create a flight list by typing the amount of flights and then click the option on the menu.">
+         <font>
+            <Font name="Book Antiqua" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="1021.0" layoutY="824.0" prefHeight="74.0" prefWidth="879.0" text="3. PLEASE use the same format you see on the screen to search using a certain criteria.">
          <font>
             <Font name="Book Antiqua" size="20.0" />
          </font>

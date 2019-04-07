@@ -23,10 +23,6 @@ public class Airport {
 	}
 
 	/**
-	 * @return the dates
-	 */
-
-	/**
 	 * @return the destinations
 	 */
 	public String[] getDestinations() {
@@ -115,7 +111,7 @@ public class Airport {
 			int rGate = (int)Math.floor(Math.random()*GATES + 1);
 			String rDestination = destinations[(int) Math.floor( Math.random()*destinations.length)];
 			String rAirline = airNames[(int) Math.floor(Math.random()*airNames.length)];
-			flights[i] = new Flight(rAirline, rTime, rDestination, rGate, rId, rDate);
+			flights[i] = new Flight(rAirline, rDestination, rTime, rGate, rId, rDate);
 		}
 	}
 

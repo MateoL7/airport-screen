@@ -15,7 +15,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import model.Airport;
 import model.Flight;
 import model.SortedBy;
@@ -63,13 +62,13 @@ public class FlightController {
 	public void initialize() throws IOException{
 		ap = new Airport(20);
 		ObservableList<Flight> oFlights = FXCollections.observableArrayList();
-		updateList();
-		timeCol.setCellValueFactory(new PropertyValueFactory<>("destination"));
+		timeCol.setCellValueFactory(new PropertyValueFactory<>("time"));
 		dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
 		airlineCol.setCellValueFactory(new PropertyValueFactory<>("airline"));
-		destinationCol.setCellValueFactory(new PropertyValueFactory<>("time"));
+		destinationCol.setCellValueFactory(new PropertyValueFactory<>("destination"));
 		flightNumCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 		gateCol.setCellValueFactory(new PropertyValueFactory<>("gate"));
+		updateList();
 		flightsTable.setItems(oFlights);
 	}
 
@@ -121,7 +120,7 @@ public class FlightController {
 		ap.sortByDestination();
 		after = (System.currentTimeMillis());
 		time = (after-before);
-		System.out.println("Time to sort by Time(Hour and Minutes):" + time + " miliseconds");
+		System.out.println("Time to sort by Destination " + time + " miliseconds");
 		flightsTable.setItems(updateList());
 	}
 
@@ -141,7 +140,7 @@ public class FlightController {
 		ap.sortByTime();
 		after = (System.currentTimeMillis());
 		time = (after-before);
-		System.out.println("Time to sort by Destination: " + time + " miliseconds");
+		System.out.println("Time to sort by Time: " + time + " miliseconds");
 		flightsTable.setItems(updateList());
 	}
 
@@ -153,7 +152,12 @@ public class FlightController {
 
 	@FXML
 	public void searchAirline(ActionEvent event) {
+
+		before = (System.currentTimeMillis());
 		Flight show1 = ap.searchFlightAirline(searchField.getText());
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		System.out.println("Time to search by Airline:" + time + " miliseconds");
 		if(show1 == null) {
 			message.setText("No flight found with that criteria.");
 		}
@@ -167,7 +171,11 @@ public class FlightController {
 
 	@FXML
 	public void searchDate(ActionEvent event) {
+		before = (System.currentTimeMillis());
 		Flight show1 = ap.searchFlightDate(searchField.getText());
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		System.out.println("Time to search by Date:" + time + " miliseconds");
 		if(show1 == null) {
 			message.setText("No flight found with that criteria.");
 		}
@@ -180,7 +188,11 @@ public class FlightController {
 
 	@FXML
 	public void searchDestination(ActionEvent event) {
+		before = (System.currentTimeMillis());
 		Flight show1 = ap.searchFlightDestination(searchField.getText());
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		System.out.println("Time to search by Destination:" + time + " miliseconds");
 		if(show1 == null) {
 			message.setText("No flight found with that criteria.");
 		}
@@ -190,12 +202,18 @@ public class FlightController {
 			flightsTable.setItems(oFlights);
 		}
 	}
-
+ 
+	
+	
 	@FXML
 	public void searchGate(ActionEvent event) {
 		Flight show1 = null; 
 		if(ap.getSorted() == SortedBy.GATE) {
+			before = (System.currentTimeMillis());
 			show1 = ap.searchFlightGate((Integer.parseInt(searchField.getText())));
+			after = (System.currentTimeMillis());
+			time = (after-before);
+			System.out.println("Time to search by Gate:" + time + " miliseconds");
 			if(show1 != null) {
 				oFlights.clear();
 				oFlights.add(show1);
@@ -213,7 +231,11 @@ public class FlightController {
 
 	@FXML
 	public void searchId(ActionEvent event) {
+		before = (System.currentTimeMillis());
 		Flight show1 = ap.searchFlightId(searchField.getText());
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		System.out.println("Time to search by Flight Number:" + time + " miliseconds");
 		if(show1 == null) {
 			message.setText("No flight found with that criteria.");
 		}
@@ -226,7 +248,11 @@ public class FlightController {
 
 	@FXML
 	public void searchTime(ActionEvent event) {
+		before = (System.currentTimeMillis());
 		Flight show1 = ap.searchFlightTime(searchField.getText());
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		System.out.println("Time to search by Time:" + time + " miliseconds");
 		if(show1 == null) {
 			message.setText("No flight found with that criteria.");
 		}
@@ -236,10 +262,4 @@ public class FlightController {
 			flightsTable.setItems(oFlights);
 		}
 	}
-
-	public void setStage(Stage stage) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
