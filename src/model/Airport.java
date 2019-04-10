@@ -16,9 +16,14 @@ public class Airport {
 	private String[] airNames;
 	private String[] destinations;
 	private int gates;
+	private int shownFlights;
+	private int currentPageFlights;
+
 
 	public Airport(int size) throws IOException {
 		randomFlightList(size);
+		shownFlights = 25;
+		currentPageFlights = 0;
 
 	}
 
@@ -266,23 +271,43 @@ public class Airport {
 	//Binary Search
 	public Flight searchFlightGate(int gate) {
 		Flight gotIt = null;
-		boolean out = false;
+		boolean keep = true;
 		int low = 0;
 		int high = flights.length-1;
-		while(low <= high && out == false) {
+		while(low <= high && keep) {
 			int mid = (low+high)/2;
-			if(flights[mid].getGate() > gate) {
+			if(flights[mid].getGate() < gate) {
 				low = mid + 1;
 			}
-			else if(flights[mid].getGate() < gate) {
+			else if(flights[mid].getGate() > gate) {
 				high = mid - 1;
 			}
 			else{
 				gotIt = flights[mid];
-				out = true;
+				keep = false;
 			}
 		}
 		return gotIt;
+	}
+
+	/**
+	 * @return the currentPageFlights
+	 */
+	public int getCurrentPageFlights() {
+		return currentPageFlights;
+	}
+
+	/**
+	 * @param currentPageFlights the currentPageFlights to set
+	 */
+	public void setCurrentPageFlights(int currentPageFlights) {
+		this.currentPageFlights = currentPageFlights;
+	}
+	/**
+	 * @return the shownFlights
+	 */
+	public int getShownFlights() {
+		return shownFlights;
 	}
 }
 

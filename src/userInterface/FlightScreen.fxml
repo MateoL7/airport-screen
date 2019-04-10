@@ -76,7 +76,7 @@
 				<Insets left="10.0" />
 			</padding>
 		</HBox>
-      <TableView fx:id="flightsTable" layoutX="-1.0" layoutY="135.0" prefHeight="945.0" prefWidth="934.0">
+      <TableView fx:id="flightsTable" layoutX="-1.0" layoutY="135.0" prefHeight="813.0" prefWidth="934.0">
         <columns>
           <TableColumn fx:id="timeCol" prefWidth="123.99994051456451" text="Time" />
           <TableColumn fx:id="dateCol" prefWidth="210.39990997314453" text="Date" />
@@ -86,12 +86,12 @@
             <TableColumn fx:id="gateCol" minWidth="1.60003662109375" prefWidth="116.7999267578125" text="Gate" />
         </columns>
       </TableView>
-				<Label layoutX="969.0" layoutY="309.0" prefHeight="111.0" prefWidth="168.0" text="Messages:">
+				<Label layoutX="975.0" layoutY="181.0" prefHeight="111.0" prefWidth="168.0" text="Messages:">
          <font>
             <Font name="Book Antiqua" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="message" layoutX="1130.0" layoutY="309.0" prefHeight="118.0" prefWidth="596.0">
+      <Label fx:id="message" layoutX="1158.0" layoutY="179.0" prefHeight="118.0" prefWidth="596.0">
          <padding>
             <Insets top="50.0" />
          </padding>
@@ -99,49 +99,59 @@
             <Font name="Book Antiqua" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="977.0" layoutY="511.0" prefHeight="56.0" prefWidth="162.0" text="Instructions">
+      <Label layoutX="969.0" layoutY="408.0" prefHeight="56.0" prefWidth="162.0" text="Instructions">
          <font>
             <Font name="Book Antiqua" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="1021.0" layoutY="709.0" prefHeight="59.0" prefWidth="162.0" text="Search: ">
+      <Label layoutX="1013.0" layoutY="606.0" prefHeight="59.0" prefWidth="162.0" text="Search: ">
          <font>
             <Font name="Book Antiqua" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="1021.0" layoutY="738.0" prefHeight="102.0" prefWidth="879.0" text="1. Type the especific Airline, Time, Date, Flight Number, Gate or Destination you are looking for.">
+      <Label layoutX="1013.0" layoutY="635.0" prefHeight="102.0" prefWidth="879.0" text="1. Type the especific Airline, Time, Date, Flight Number, Gate or Destination you are looking for.">
          <font>
             <Font name="Book Antiqua" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="1021.0" layoutY="765.0" prefHeight="118.0" prefWidth="879.0" text="2. Click on the menu &quot;Search&quot; and finally click on the criteria matching you search.">
+      <Label layoutX="1013.0" layoutY="662.0" prefHeight="118.0" prefWidth="879.0" text="2. Click on the menu &quot;Search&quot; and finally click on the criteria matching you search.">
          <font>
             <Font name="Book Antiqua" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="1018.0" layoutY="883.0" prefHeight="59.0" prefWidth="94.0" text="Sort:">
+      <Label layoutX="1010.0" layoutY="780.0" prefHeight="59.0" prefWidth="94.0" text="Sort:">
          <font>
             <Font name="Book Antiqua" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="1018.0" layoutY="936.0" prefHeight="59.0" prefWidth="717.0" text="1. Click on the criteria you want to sort the list by.">
+      <Label layoutX="1010.0" layoutY="833.0" prefHeight="59.0" prefWidth="717.0" text="1. Click on the criteria you want to sort the list by.">
          <font>
             <Font name="Book Antiqua" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="1021.0" layoutY="597.0" prefHeight="59.0" prefWidth="243.0" text="Create Flight List:">
+      <Label layoutX="1013.0" layoutY="494.0" prefHeight="59.0" prefWidth="243.0" text="Create Flight List:">
          <font>
             <Font name="Book Antiqua" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="1023.0" layoutY="656.0" prefHeight="59.0" prefWidth="819.0" text="1. Create a flight list by typing the amount of flights and then click the option on the menu.">
+      <Label layoutX="1015.0" layoutY="553.0" prefHeight="59.0" prefWidth="819.0" text="1. Create a flight list by typing the amount of flights and then click the option on the menu.">
          <font>
             <Font name="Book Antiqua" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="1021.0" layoutY="824.0" prefHeight="74.0" prefWidth="879.0" text="3. PLEASE use the same format you see on the screen to search using a certain criteria.">
+      <Label layoutX="1013.0" layoutY="721.0" prefHeight="74.0" prefWidth="879.0" text="3. PLEASE use the same format you see on the screen to search using a certain criteria.">
          <font>
             <Font name="Book Antiqua" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="timeLabel" layoutX="983.0" layoutY="320.0" prefHeight="61.0" prefWidth="565.0">
+         <font>
+            <Font name="Book Antiqua" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="7.0" layoutY="945.0" prefHeight="56.0" prefWidth="895.0" text="To see the next flights: Scroll down. || To see the previous flights: Scroll up.">
+         <font>
+            <Font name="Book Antiqua" size="25.0" />
          </font>
       </Label>
 	</children>
