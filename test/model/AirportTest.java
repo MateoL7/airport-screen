@@ -41,6 +41,51 @@ class AirportTest {
 		}
 	}
 	@Test
+	public void testSortByDate() throws IOException {
+		setupScenary2();
+		setupScenary3();
+		ap.sortByDate();
+		for(int i = 0; i < ap.getFlights().length-1; i++) {
+			assertTrue("Not the right place", ap.getFlights()[i].getDate().compareTo(ap.getFlights()[i+1].getDate()) <= 0);
+		}
+	}
+	@Test
+	public void testSortById() throws IOException {
+		setupScenary2();
+		setupScenary3();
+		ap.sortById();
+		for(int i = 0; i < ap.getFlights().length-1; i++) {
+			assertTrue("Not the right place", ap.getFlights()[i].getId().compareTo(ap.getFlights()[i+1].getId()) <= 0);
+		}
+	}
+	@Test
+	public void testSortByDestination() throws IOException {
+		setupScenary2();
+		setupScenary3();
+		ap.sortByDestination();
+		for(int i = 0; i < ap.getFlights().length-1; i++) {
+			assertTrue("Not the right place", ap.getFlights()[i].getDestination().compareTo(ap.getFlights()[i+1].getDestination()) <= 0);
+		}
+	}
+	@Test
+	public void testSortByAirline() throws IOException {
+		setupScenary2();
+		setupScenary3();
+		ap.sortByAirline();
+		for(int i = 0; i < ap.getFlights().length-1; i++) {
+			assertTrue("Not the right place", ap.getFlights()[i].getAirline().compareTo(ap.getFlights()[i+1].getAirline()) <= 0);
+		}
+	}
+	@Test
+	public void testSortByTime() throws IOException {
+		setupScenary2();
+		setupScenary3();
+		ap.sortByTime();
+		for(int i = 0; i < ap.getFlights().length-1; i++) {
+			assertTrue("Not the right place", ap.getFlights()[i].getTime().compareTo(ap.getFlights()[i+1].getTime()) <= 0);
+		}
+	}
+	@Test
 	public void testSearchFlightTime() throws IOException {
 		setupScenary2();
 		setupScenary3();
