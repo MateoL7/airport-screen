@@ -74,6 +74,9 @@ public class Airport {
 	}
 
 	//Creating a flight list randomly
+	/** This method creates an especific amount of flights with random attributes 
+	 * @param size the amount of flights to create
+	 */
 	public void randomFlightList(int size) throws IOException {
 		flights = new Flight[size];
 		destinations = loadInfo(PATH_DESTINATIONS);
