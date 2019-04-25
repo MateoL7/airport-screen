@@ -11,6 +11,8 @@ public class Flight implements Comparable<Flight>{
 	private int gate;
 	private String id;
 	private String date; //		Year/Month/Day
+	private Flight nextF;
+	private Flight prevF;
 	
 	/**
 	 * @param pAir
@@ -28,6 +30,34 @@ public class Flight implements Comparable<Flight>{
 		gate = pGate;
 		id = pId;
 		date = pDate;
+	}
+
+	/**
+	 * @return the nextF
+	 */
+	public Flight getNextF() {
+		return nextF;
+	}
+
+	/**
+	 * @param nextF the nextF to set
+	 */
+	public void setNextF(Flight nextF) {
+		this.nextF = nextF;
+	}
+
+	/**
+	 * @return the prevF
+	 */
+	public Flight getPrevF() {
+		return prevF;
+	}
+
+	/**
+	 * @param prevF the prevF to set
+	 */
+	public void setPrevF(Flight prevF) {
+		this.prevF = prevF;
 	}
 
 	/**
