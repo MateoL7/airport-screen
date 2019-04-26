@@ -57,14 +57,16 @@ public class FlightController {
 	private ObservableList<Flight> oFlights;
 
 	private Airport ap;
+	private Flight flight;
 
 	private Long time;
 	private Long before;
 	private Long after;
 
+	@FXML
 	public void initialize() throws IOException{
-		ap = new Airport(50);
-		ObservableList<Flight> oFlights = FXCollections.observableArrayList();
+		ap = new Airport(10);
+		oFlights = FXCollections.observableArrayList();
 		timeCol.setCellValueFactory(new PropertyValueFactory<>("time"));
 		dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
 		airlineCol.setCellValueFactory(new PropertyValueFactory<>("airline"));
@@ -85,6 +87,7 @@ public class FlightController {
 				try {
 					ap.setCurrentPageFlights(0);
 					int size = Integer.parseInt(searchField.getText());
+					oFlights.clear();
 					ap.randomFlightList(size);
 					updateList();
 					flightsTable.setItems(oFlights);
@@ -94,183 +97,187 @@ public class FlightController {
 					message.setText("An error has ocurred, please re-launch the program");
 				}
 	}
-
+//
 	@FXML
 	public void SortFlightNumber(ActionEvent event) {
-		before = (System.currentTimeMillis());
-		ap.sortById();
-		after = (System.currentTimeMillis());
-		time = (after-before);
-		timeLabel.setText("Time to sort by Flight number: " + time + " miliseconds");
-		flightsTable.setItems(updateList());
+//		before = (System.currentTimeMillis());
+//		ap.sortById();
+//		after = (System.currentTimeMillis());
+//		time = (after-before);
+//		timeLabel.setText("Time to sort by Flight number: " + time + " miliseconds");
+//		flightsTable.setItems(updateList());
 	}
-
+//
 	@FXML
 	public void sortDate(ActionEvent event) {
-		before = (System.currentTimeMillis());
-		ap.sortByDate();
-		after = (System.currentTimeMillis());
-		time = (after-before);
-		timeLabel.setText("Time to sort by Date: " + time + " miliseconds");
-		flightsTable.setItems(updateList());
+//		before = (System.currentTimeMillis());
+//		ap.sortByDate();
+//		after = (System.currentTimeMillis());
+//		time = (after-before);
+//		timeLabel.setText("Time to sort by Date: " + time + " miliseconds");
+//		flightsTable.setItems(updateList());
 	}
-
+//
 	@FXML
 	public void sortAirline(ActionEvent event) {
-		before = (System.currentTimeMillis());
-		ap.sortByAirline();
-		after = (System.currentTimeMillis());
-		time = (after-before);
-		timeLabel.setText("Time to sort by Airline: " + time + " miliseconds");
-		flightsTable.setItems(updateList());
+//		before = (System.currentTimeMillis());
+//		ap.sortByAirline();
+//		after = (System.currentTimeMillis());
+//		time = (after-before);
+//		timeLabel.setText("Time to sort by Airline: " + time + " miliseconds");
+//		flightsTable.setItems(updateList());
 	}
-
+//
 	@FXML
 	public void sortDestination(ActionEvent event) {
-		before = (System.currentTimeMillis());
-		ap.sortByDestination();
-		after = (System.currentTimeMillis());
-		time = (after-before);
-		timeLabel.setText("Time to sort by Destination: " + time + " miliseconds");
-		flightsTable.setItems(updateList());
+//		before = (System.currentTimeMillis());
+//		ap.sortByDestination();
+//		after = (System.currentTimeMillis());
+//		time = (after-before);
+//		timeLabel.setText("Time to sort by Destination: " + time + " miliseconds");
+//		flightsTable.setItems(updateList());
 	}
-
+//
 	@FXML
 	public void sortGate(ActionEvent event) {
-		before = (System.currentTimeMillis());
-		ap.sortByGate();
-		after = (System.currentTimeMillis());
-		time = (after-before);
-		timeLabel.setText("Time to sort by Gate: " + time + " miliseconds");
-		flightsTable.setItems(updateList());
+//		before = (System.currentTimeMillis());
+//		ap.sortByGate();
+//		after = (System.currentTimeMillis());
+//		time = (after-before);
+//		timeLabel.setText("Time to sort by Gate: " + time + " miliseconds");
+//		flightsTable.setItems(updateList());
 	}
-
+//
 	@FXML
 	public void sortTime(ActionEvent event) {
-		before = (System.currentTimeMillis());
-		ap.sortByTime();
-		after = (System.currentTimeMillis());
-		time = (after-before);
-		timeLabel.setText("Time to sort by Time: " + time + " miliseconds");
-		flightsTable.setItems(updateList());
+//		before = (System.currentTimeMillis());
+//		ap.sortByTime();
+//		after = (System.currentTimeMillis());
+//		time = (after-before);
+//		timeLabel.setText("Time to sort by Time: " + time + " miliseconds");
+//		flightsTable.setItems(updateList());
 	}
-
-	public ObservableList<Flight> updateList() {
-		Flight[] complete = ap.getFlights();
-		List<Flight> list = Arrays.asList(complete);
-		return oFlights = FXCollections.observableArrayList(list);
+//
+	public void updateList() {
+		flight = ap.getFirst();
+		if(flight != null) {
+			while((flight.getNextF() != ap.getFirst())) {
+				oFlights.add(flight);
+				flight = flight.getNextF();
+			}
+		}
 	}
 
 	@FXML
 	public void searchAirline(ActionEvent event) {
-
-		before = (System.currentTimeMillis());
-		Flight show1 = ap.searchFlightAirline(searchField.getText());
-		after = (System.currentTimeMillis());
-		time = (after-before);
-		timeLabel.setText("Time to search by Airline: " + time + " miliseconds");
-		if(show1 == null) {
-			message.setText("No flight found with that criteria.");
-		}
-		else {
-			oFlights.clear();
-			oFlights.add(show1);
-			flightsTable.setItems(oFlights);
-		}
-
+//
+//		before = (System.currentTimeMillis());
+//		Flight show1 = ap.searchFlightAirline(searchField.getText());
+//		after = (System.currentTimeMillis());
+//		time = (after-before);
+//		timeLabel.setText("Time to search by Airline: " + time + " miliseconds");
+//		if(show1 == null) {
+//			message.setText("No flight found with that criteria.");
+//		}
+//		else {
+//			oFlights.clear();
+//			oFlights.add(show1);
+//			flightsTable.setItems(oFlights);
+//		}
+//
 	}
-
+//
 	@FXML
 	public void searchDate(ActionEvent event) {
-		before = (System.currentTimeMillis());
-		Flight show1 = ap.searchFlightDate(searchField.getText());
-		after = (System.currentTimeMillis());
-		time = (after-before);
-		timeLabel.setText("Time to search by Date: " + time + " miliseconds");
-		if(show1 == null) {
-			message.setText("No flight found with that criteria.");
-		}
-		else {
-			oFlights.clear();
-			oFlights.add(show1);
-			flightsTable.setItems(oFlights);
-		}
+//		before = (System.currentTimeMillis());
+//		Flight show1 = ap.searchFlightDate(searchField.getText());
+//		after = (System.currentTimeMillis());
+//		time = (after-before);
+//		timeLabel.setText("Time to search by Date: " + time + " miliseconds");
+//		if(show1 == null) {
+//			message.setText("No flight found with that criteria.");
+//		}
+//		else {
+//			oFlights.clear();
+//			oFlights.add(show1);
+//			flightsTable.setItems(oFlights);
+//		}
 	}
-
+//
 	@FXML
 	public void searchDestination(ActionEvent event) {
-		before = (System.currentTimeMillis());
-		Flight show1 = ap.searchFlightDestination(searchField.getText());
-		after = (System.currentTimeMillis());
-		time = (after-before);
-		timeLabel.setText("Time to search by Destination: " + time + " miliseconds");
-		if(show1 == null) {
-			message.setText("No flight found with that criteria.");
-		}
-		else {
-			oFlights.clear();
-			oFlights.add(show1);
-			flightsTable.setItems(oFlights);
-		}
+//		before = (System.currentTimeMillis());
+//		Flight show1 = ap.searchFlightDestination(searchField.getText());
+//		after = (System.currentTimeMillis());
+//		time = (after-before);
+//		timeLabel.setText("Time to search by Destination: " + time + " miliseconds");
+//		if(show1 == null) {
+//			message.setText("No flight found with that criteria.");
+//		}
+//		else {
+//			oFlights.clear();
+//			oFlights.add(show1);
+//			flightsTable.setItems(oFlights);
+//		}
 	}
-
-
-
+//
+//
+//
 	@FXML
 	public void searchGate(ActionEvent event) {
-		Flight show1 = null; 
-		if(ap.getSorted() == SortedBy.GATE) {
-			before = (System.currentTimeMillis());
-			show1 = ap.searchFlightGate((Integer.parseInt(searchField.getText())));
-			after = (System.currentTimeMillis());
-			time = (after-before);
-			timeLabel.setText("Time to search by Gate: " + time + " miliseconds");
-			if(show1 != null) {
-				oFlights.clear();
-				oFlights.add(show1);
-				flightsTable.setItems(oFlights);
-			}
-			else {
-				message.setText("No flight found with that criteria.");
-			}
-		}
-		else{
-			message.setText("First sort the list by gate, then try again.");
-		}
-
+//		Flight show1 = null; 
+//		if(ap.getSorted() == SortedBy.GATE) {
+//			before = (System.currentTimeMillis());
+//			show1 = ap.searchFlightGate((Integer.parseInt(searchField.getText())));
+//			after = (System.currentTimeMillis());
+//			time = (after-before);
+//			timeLabel.setText("Time to search by Gate: " + time + " miliseconds");
+//			if(show1 != null) {
+//				oFlights.clear();
+//				oFlights.add(show1);
+//				flightsTable.setItems(oFlights);
+//			}
+//			else {
+//				message.setText("No flight found with that criteria.");
+//			}
+//		}
+//		else{
+//			message.setText("First sort the list by gate, then try again.");
+//		}
+//
 	}
-
+//
 	@FXML
 	public void searchId(ActionEvent event) {
-		before = (System.currentTimeMillis());
-		Flight show1 = ap.searchFlightId(searchField.getText());
-		after = (System.currentTimeMillis());
-		time = (after-before);
-		timeLabel.setText("Time to search by Flight Number: " + time + " miliseconds");
-		if(show1 == null) {
-			message.setText("No flight found with that criteria.");
-		}
-		else {
-			oFlights.clear();
-			oFlights.add(show1);
-			flightsTable.setItems(oFlights);
-		}
+//		before = (System.currentTimeMillis());
+//		Flight show1 = ap.searchFlightId(searchField.getText());
+//		after = (System.currentTimeMillis());
+//		time = (after-before);
+//		timeLabel.setText("Time to search by Flight Number: " + time + " miliseconds");
+//		if(show1 == null) {
+//			message.setText("No flight found with that criteria.");
+//		}
+//		else {
+//			oFlights.clear();
+//			oFlights.add(show1);
+//			flightsTable.setItems(oFlights);
+//		}
 	}
-
+//
 	@FXML
 	public void searchTime(ActionEvent event) {
-		before = (System.currentTimeMillis());
-		Flight show1 = ap.searchFlightTime(searchField.getText());
-		after = (System.currentTimeMillis());
-		time = (after-before);
-		timeLabel.setText("Time to search by Time: " + time + " miliseconds");
-		if(show1 == null) {
-			message.setText("No flight found with that criteria.");
-		}
-		else {
-			oFlights.clear();
-			oFlights.add(show1);
-			flightsTable.setItems(oFlights);
-		}
+//		before = (System.currentTimeMillis());
+//		Flight show1 = ap.searchFlightTime(searchField.getText());
+//		after = (System.currentTimeMillis());
+//		time = (after-before);
+//		timeLabel.setText("Time to search by Time: " + time + " miliseconds");
+//		if(show1 == null) {
+//			message.setText("No flight found with that criteria.");
+//		}
+//		else {
+//			oFlights.clear();
+//			oFlights.add(show1);
+//			flightsTable.setItems(oFlights);
+//		}
 	}
 }

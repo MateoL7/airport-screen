@@ -13,7 +13,7 @@ public class Airport {
 	public final static String PATH_AIRLINES = "data\\airlines.txt";
 	public final static String PATH_DESTINATIONS = "data\\destination.txt";
 	//private Flight[] flights;
-	private LinkedList<Flight> flights;
+	private Flight first;
 	private SortedBy sorted;
 	private String[] airNames;
 	private String[] destinations;
@@ -30,6 +30,20 @@ public class Airport {
 	}
 
 	/**
+	 * @return the first
+	 */
+	public Flight getFirst() {
+		return first;
+	}
+
+	/**
+	 * @param first the first to set
+	 */
+	public void setFirst(Flight first) {
+		this.first = first;
+	}
+
+	/**
 	 * @return the destinations
 	 */
 	public String[] getDestinations() {
@@ -43,12 +57,12 @@ public class Airport {
 		return airNames;
 	}
 
-	/** This method returns the corresponding attribute 
-	 * @return the flights
-	 */
-	public LinkedList<Flight> getFlights() {
-		return flights;
-	}
+//	/** This method returns the corresponding attribute 
+//	 * @return the flights
+//	 */
+//	public LinkedList<Flight> getFlights() {
+//		return flights;
+//	}
 
 	/** This method returns the corresponding attribute
 	 * @return the gates
@@ -80,11 +94,11 @@ public class Airport {
 	 * @param size the amount of flights to create
 	 */
 	public void randomFlightList(int size) throws IOException {
-		flights = new LinkedList<Flight>();
+		//flights = new LinkedList<Flight>();
 		int counter = 0;
 		destinations = loadInfo(PATH_DESTINATIONS);
 		airNames = loadInfo(PATH_AIRLINES);
-//		for(int i = 0; i < flights.length; i++) {
+		first = null;
 		while(counter <= size) {
 			int rHour = (int) (Math.floor(Math.random()*12 + 1));
 			if(rHour == 12) {
@@ -123,14 +137,24 @@ public class Airport {
 			int rGate = (int)Math.floor(Math.random()*GATES + 1);
 			String rDestination = destinations[(int) Math.floor( Math.random()*destinations.length)];
 			String rAirline = airNames[(int) Math.floor(Math.random()*airNames.length)];
-			Flight f1 = new Flight(rAirline, rDestination, rTime, rGate, rId, rDate);
-			flights.add(f1);
+			addFlight(rAirline, rDestination, rTime, rGate, rId, rDate);
 			counter++;
 		}
 	}
 	
-	public void addFlight(String pAir, String pDest, String pTime, int pGate, String pId, String pDate) {
-		
+	public void addFlight(String rAirline, String rDestination, String rTime, int rGate, String rId, String rDate) {
+		Flight f1 = new Flight(rAirline, rDestination, rTime, rGate, rId, rDate);
+		if(first != null) {
+			Flight last = first.getPrevF();
+			last.setNextF(f1);
+			first.setPrevF(f1);
+			f1.setNextF(first);
+			f1.setPrevF(last);
+		} else {
+			first = f1;
+			first.setNextF(f1);
+			first.setPrevF(f1);
+		}
 	}
 
 //	//Uses Comparable
