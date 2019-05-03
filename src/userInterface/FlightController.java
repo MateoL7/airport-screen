@@ -1,8 +1,6 @@
 package userInterface;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 
 import javafx.collections.FXCollections;
@@ -97,7 +95,7 @@ public class FlightController {
 					message.setText("An error has ocurred, please re-launch the program");
 				}
 	}
-//
+
 	@FXML
 	public void SortFlightNumber(ActionEvent event) {
 //		before = (System.currentTimeMillis());
@@ -107,7 +105,7 @@ public class FlightController {
 //		timeLabel.setText("Time to sort by Flight number: " + time + " miliseconds");
 //		flightsTable.setItems(updateList());
 	}
-//
+
 	@FXML
 	public void sortDate(ActionEvent event) {
 //		before = (System.currentTimeMillis());
@@ -117,7 +115,7 @@ public class FlightController {
 //		timeLabel.setText("Time to sort by Date: " + time + " miliseconds");
 //		flightsTable.setItems(updateList());
 	}
-//
+
 	@FXML
 	public void sortAirline(ActionEvent event) {
 //		before = (System.currentTimeMillis());
@@ -127,7 +125,7 @@ public class FlightController {
 //		timeLabel.setText("Time to sort by Airline: " + time + " miliseconds");
 //		flightsTable.setItems(updateList());
 	}
-//
+
 	@FXML
 	public void sortDestination(ActionEvent event) {
 //		before = (System.currentTimeMillis());
@@ -137,7 +135,7 @@ public class FlightController {
 //		timeLabel.setText("Time to sort by Destination: " + time + " miliseconds");
 //		flightsTable.setItems(updateList());
 	}
-//
+
 	@FXML
 	public void sortGate(ActionEvent event) {
 //		before = (System.currentTimeMillis());
@@ -147,18 +145,18 @@ public class FlightController {
 //		timeLabel.setText("Time to sort by Gate: " + time + " miliseconds");
 //		flightsTable.setItems(updateList());
 	}
-//
-	@FXML
-	public void sortTime(ActionEvent event) {
+
+//	@FXML
+//	public void sortTime(ActionEvent event) {
 //		before = (System.currentTimeMillis());
 //		ap.sortByTime();
 //		after = (System.currentTimeMillis());
 //		time = (after-before);
 //		timeLabel.setText("Time to sort by Time: " + time + " miliseconds");
 //		flightsTable.setItems(updateList());
-	}
-//
-	public void updateList() {
+//	}
+
+	public ObservableList<Flight> updateList() {
 		flight = ap.getFirst();
 		if(flight != null) {
 			while((flight.getNextF() != ap.getFirst())) {
@@ -166,118 +164,112 @@ public class FlightController {
 				flight = flight.getNextF();
 			}
 		}
+		return oFlights;
 	}
 
 	@FXML
 	public void searchAirline(ActionEvent event) {
-//
-//		before = (System.currentTimeMillis());
-//		Flight show1 = ap.searchFlightAirline(searchField.getText());
-//		after = (System.currentTimeMillis());
-//		time = (after-before);
-//		timeLabel.setText("Time to search by Airline: " + time + " miliseconds");
-//		if(show1 == null) {
-//			message.setText("No flight found with that criteria.");
-//		}
-//		else {
-//			oFlights.clear();
-//			oFlights.add(show1);
-//			flightsTable.setItems(oFlights);
-//		}
-//
+
+		before = (System.currentTimeMillis());
+		Flight show1 = ap.searchFlightAirline(searchField.getText());
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		timeLabel.setText("Time to search by Airline: " + time + " miliseconds");
+		if(show1 == null) {
+			message.setText("No flight found with that criteria.");
+		}
+		else {
+			oFlights.clear();
+			oFlights.add(show1);
+			flightsTable.setItems(oFlights);
+		}
+
 	}
-//
+	
 	@FXML
 	public void searchDate(ActionEvent event) {
-//		before = (System.currentTimeMillis());
-//		Flight show1 = ap.searchFlightDate(searchField.getText());
-//		after = (System.currentTimeMillis());
-//		time = (after-before);
-//		timeLabel.setText("Time to search by Date: " + time + " miliseconds");
-//		if(show1 == null) {
-//			message.setText("No flight found with that criteria.");
-//		}
-//		else {
-//			oFlights.clear();
-//			oFlights.add(show1);
-//			flightsTable.setItems(oFlights);
-//		}
+		before = (System.currentTimeMillis());
+		Flight show1 = ap.searchFlightDate(searchField.getText());
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		timeLabel.setText("Time to search by Date: " + time + " miliseconds");
+		if(show1 == null) {
+			message.setText("No flight found with that criteria.");
+		}
+		else {
+			oFlights.clear();
+			oFlights.add(show1);
+			flightsTable.setItems(oFlights);
+		}
 	}
-//
+
 	@FXML
 	public void searchDestination(ActionEvent event) {
-//		before = (System.currentTimeMillis());
-//		Flight show1 = ap.searchFlightDestination(searchField.getText());
-//		after = (System.currentTimeMillis());
-//		time = (after-before);
-//		timeLabel.setText("Time to search by Destination: " + time + " miliseconds");
-//		if(show1 == null) {
-//			message.setText("No flight found with that criteria.");
-//		}
-//		else {
-//			oFlights.clear();
-//			oFlights.add(show1);
-//			flightsTable.setItems(oFlights);
-//		}
+		before = (System.currentTimeMillis());
+		Flight show1 = ap.searchFlightDestination(searchField.getText());
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		timeLabel.setText("Time to search by Destination: " + time + " miliseconds");
+		if(show1 == null) {
+			message.setText("No flight found with that criteria.");
+		}
+		else {
+			oFlights.clear();
+			oFlights.add(show1);
+			flightsTable.setItems(oFlights);
+		}
 	}
-//
-//
-//
+
 	@FXML
 	public void searchGate(ActionEvent event) {
-//		Flight show1 = null; 
-//		if(ap.getSorted() == SortedBy.GATE) {
-//			before = (System.currentTimeMillis());
-//			show1 = ap.searchFlightGate((Integer.parseInt(searchField.getText())));
-//			after = (System.currentTimeMillis());
-//			time = (after-before);
-//			timeLabel.setText("Time to search by Gate: " + time + " miliseconds");
-//			if(show1 != null) {
-//				oFlights.clear();
-//				oFlights.add(show1);
-//				flightsTable.setItems(oFlights);
-//			}
-//			else {
-//				message.setText("No flight found with that criteria.");
-//			}
-//		}
-//		else{
-//			message.setText("First sort the list by gate, then try again.");
-//		}
-//
+		Flight show1 = null; 
+			before = (System.currentTimeMillis());
+			show1 = ap.searchFlightGate((Integer.parseInt(searchField.getText())));
+			after = (System.currentTimeMillis());
+			time = (after-before);
+			timeLabel.setText("Time to search by Gate: " + time + " miliseconds");
+			if(show1 != null) {
+				oFlights.clear();
+				oFlights.add(show1);
+				flightsTable.setItems(oFlights);
+			}
+			else {
+				message.setText("No flight found with that criteria.");
+			}
+
 	}
-//
+
 	@FXML
 	public void searchId(ActionEvent event) {
-//		before = (System.currentTimeMillis());
-//		Flight show1 = ap.searchFlightId(searchField.getText());
-//		after = (System.currentTimeMillis());
-//		time = (after-before);
-//		timeLabel.setText("Time to search by Flight Number: " + time + " miliseconds");
-//		if(show1 == null) {
-//			message.setText("No flight found with that criteria.");
-//		}
-//		else {
-//			oFlights.clear();
-//			oFlights.add(show1);
-//			flightsTable.setItems(oFlights);
-//		}
+		before = (System.currentTimeMillis());
+		Flight show1 = ap.searchFlightId(searchField.getText());
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		timeLabel.setText("Time to search by Flight Number: " + time + " miliseconds");
+		if(show1 == null) {
+			message.setText("No flight found with that criteria.");
+		}
+		else {
+			oFlights.clear();
+			oFlights.add(show1);
+			flightsTable.setItems(oFlights);
+		}
 	}
-//
+
 	@FXML
 	public void searchTime(ActionEvent event) {
-//		before = (System.currentTimeMillis());
-//		Flight show1 = ap.searchFlightTime(searchField.getText());
-//		after = (System.currentTimeMillis());
-//		time = (after-before);
-//		timeLabel.setText("Time to search by Time: " + time + " miliseconds");
-//		if(show1 == null) {
-//			message.setText("No flight found with that criteria.");
-//		}
-//		else {
-//			oFlights.clear();
-//			oFlights.add(show1);
-//			flightsTable.setItems(oFlights);
-//		}
+		before = (System.currentTimeMillis());
+		Flight show1 = ap.searchFlightTime(searchField.getText());
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		timeLabel.setText("Time to search by Time: " + time + " miliseconds");
+		if(show1 == null) {
+			message.setText("No flight found with that criteria.");
+		}
+		else {
+			oFlights.clear();
+			oFlights.add(show1);
+			flightsTable.setItems(oFlights);
+		}
 	}
 }

@@ -14,7 +14,6 @@ public class Airport {
 	public final static String PATH_DESTINATIONS = "data\\destination.txt";
 	//private Flight[] flights;
 	private Flight first;
-	private SortedBy sorted;
 	private String[] airNames;
 	private String[] destinations;
 	private int gates;
@@ -57,12 +56,12 @@ public class Airport {
 		return airNames;
 	}
 
-//	/** This method returns the corresponding attribute 
-//	 * @return the flights
-//	 */
-//	public LinkedList<Flight> getFlights() {
-//		return flights;
-//	}
+	//	/** This method returns the corresponding attribute 
+	//	 * @return the flights
+	//	 */
+	//	public LinkedList<Flight> getFlights() {
+	//		return flights;
+	//	}
 
 	/** This method returns the corresponding attribute
 	 * @return the gates
@@ -78,9 +77,6 @@ public class Airport {
 		this.gates = gates;
 	}
 
-	public SortedBy getSorted() {
-		return sorted;
-	}
 
 	public String[] loadInfo(String path) throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(new File(path)));
@@ -141,7 +137,7 @@ public class Airport {
 			counter++;
 		}
 	}
-	
+
 	public void addFlight(String rAirline, String rDestination, String rTime, int rGate, String rId, String rDate) {
 		Flight f1 = new Flight(rAirline, rDestination, rTime, rGate, rId, rDate);
 		if(first != null) {
@@ -157,90 +153,108 @@ public class Airport {
 		}
 	}
 
-//	//Uses Comparable
-//	public void sortById() {
-//		Arrays.sort(flights);
-//		sorted = SortedBy.ID;
-//	}
-//
-//	//Selection
-//	public void sortByDate() {
-//		for(int I = 0; I < flights.length-1; I++) {
-//			int minPos = I;
-//			String minDate = flights[I].getDate();
-//			for(int J = I+1; J < flights.length; J++) {
-//				String compareDate = flights[J].getDate();
-//				if(compareDate.compareTo(minDate) < 0) {
-//					minPos = J;
-//					minDate = compareDate;
+	//	//Uses Comparable
+	//	public void sortById() {
+	//		Arrays.sort(flights);
+	//		sorted = SortedBy.ID;
+	//	}
+	//
+	//	//Selection
+	//	public void sortByDate() {
+	//		for(int I = 0; I < flights.length-1; I++) {
+	//			int minPos = I;
+	//			String minDate = flights[I].getDate();
+	//			for(int J = I+1; J < flights.length; J++) {
+	//				String compareDate = flights[J].getDate();
+	//				if(compareDate.compareTo(minDate) < 0) {
+	//					minPos = J;
+	//					minDate = compareDate;
+	//				}
+	//			}
+	//			Flight tempFlight = flights[minPos];
+	//			flights[minPos] = flights[I];
+	//			flights[I] = tempFlight;
+	//		}
+	//		sorted = SortedBy.DATE;
+	//	}
+	//
+		//Bubble
+//		public void sortByTime() {
+//			Flight prevFlight;
+//			//Flight nextFlight;
+//			Flight exchangeN;
+//			
+//			Flight current = first;
+//			int counter = 0;
+//			int times = 0;
+//			while(current.getNextF() != first) {
+//				counter++;
+//			}
+//			while(times <= counter) {
+//				if(current.getTime().compareTo(current.getNextF().getTime()) > 0) {
+//					times++;
+//					exchangeN = current.getNextF();
+//					prevFlight = current.getPrevF();
+//					//nextFlight = current.getNextF();
+//					//Flight next2Flight = current.getNextF().getNextF();
+//					
+//					current.setNextF(exchangeN);
+//					current.setPrevF(exchangeN.getPrevF());
+//					
+//					exchangeN.setNextF(current);
+//					exchangeN.setPrevF(prevFlight);
+//					
+//					current = current.getNextF();
 //				}
+//				times++;
 //			}
-//			Flight tempFlight = flights[minPos];
-//			flights[minPos] = flights[I];
-//			flights[I] = tempFlight;
+//			sorted = SortedBy.TIME;
 //		}
-//		sorted = SortedBy.DATE;
-//	}
-//
-//	//Bubble
-//	public void sortByTime() {
-//		Flight prevFlight;
-//		for(int i = 0; i < flights.length-1; i++) {
-//			for(int j = 0; j < flights.length-1; j++) {
-//				if(flights[j].getTime().compareTo(flights[j+1].getTime())>0) {
-//					prevFlight = flights[j];
-//					flights[j] = flights[j+1];
-//					flights[j+1] = prevFlight;
-//				}
-//			}
-//		}
-//		sorted = SortedBy.TIME;
-//	}
-//
-//	//Insertion
-//	public void sortByGate() {
-//		for (int i = 1; i < flights.length; i++) {
-//			Flight ini = flights[i]; 
-//			int j;
-//			for (j = i-1; j >= 0 && flights[j].getGate() > ini.getGate(); j--){
-//				flights[j+1] = flights[j];
-//			}
-//			flights[j+1] = ini;
-//		}
-//		sorted = SortedBy.GATE;
-//	}
-//
-//	//Using Comparator
-//	public void sortByAirline() {
-//		Arrays.sort(flights, new FlightAirlineComparator());
-//		sorted = SortedBy.AIRLINE;
-//	}
-//	public void sortByDestination() {
-//
-//		Comparator<Flight> FlightDestinationComparator = new Comparator<Flight>() {
-//
-//			@Override
-//			public int compare(Flight f1, Flight f2) {
-//				int comparation;
-//				String des1 = f1.getDestination();
-//				String des2 = f2.getDestination();
-//
-//				if(des1.compareTo(des2)>0) {
-//					comparation = 1;
-//				}else if(des1.compareTo(des2)<0) {
-//					comparation = -1;
-//				}else {
-//					comparation = 0;
-//				}
-//
-//				return comparation;
-//			}
-//
-//		};
-//
-//		Arrays.sort(flights, FlightDestinationComparator);
-//		sorted = SortedBy.DESTINATION;
-//	}
+	//
+	//	//Insertion
+	//	public void sortByGate() {
+	//		for (int i = 1; i < flights.length; i++) {
+	//			Flight ini = flights[i]; 
+	//			int j;
+	//			for (j = i-1; j >= 0 && flights[j].getGate() > ini.getGate(); j--){
+	//				flights[j+1] = flights[j];
+	//			}
+	//			flights[j+1] = ini;
+	//		}
+	//		sorted = SortedBy.GATE;
+	//	}
+	//
+	//	//Using Comparator
+	//	public void sortByAirline() {
+	//		Arrays.sort(flights, new FlightAirlineComparator());
+	//		sorted = SortedBy.AIRLINE;
+	//	}
+	//	public void sortByDestination() {
+	//
+	//		Comparator<Flight> FlightDestinationComparator = new Comparator<Flight>() {
+	//
+	//			@Override
+	//			public int compare(Flight f1, Flight f2) {
+	//				int comparation;
+	//				String des1 = f1.getDestination();
+	//				String des2 = f2.getDestination();
+	//
+	//				if(des1.compareTo(des2)>0) {
+	//					comparation = 1;
+	//				}else if(des1.compareTo(des2)<0) {
+	//					comparation = -1;
+	//				}else {
+	//					comparation = 0;
+	//				}
+	//
+	//				return comparation;
+	//			}
+	//
+	//		};
+	//
+	//		Arrays.sort(flights, FlightDestinationComparator);
+	//		sorted = SortedBy.DESTINATION;
+	//	}
 
 	public String time(double d) {
 		String msg = "PM";
@@ -249,83 +263,91 @@ public class Airport {
 		}
 		return msg;
 	}
-//	//Sequence Search
-//	public Flight searchFlightAirline(String air) {
-//		boolean stop = false;
-//		Flight gotIt = null;
-//		for(int i = 0; i < flights.length && !stop; i++) {
-//			if(flights[i].getAirline().equalsIgnoreCase(air)) {
-//				gotIt = flights[i];
-//				stop = true;
-//			}
-//		}
-//		return gotIt;
-//	}
-//	public Flight searchFlightTime(String time) {
-//		boolean stop = false;
-//		Flight gotIt = null;
-//		for(int i = 0; i < flights.length && !stop; i++) {
-//			if(flights[i].getTime().equalsIgnoreCase(time)) {
-//				gotIt = flights[i];
-//				stop = true;
-//			}
-//		}
-//		return gotIt;
-//	}
-//	public Flight searchFlightId(String id) {
-//		boolean stop = false;
-//		Flight gotIt = null;
-//		for(int i = 0; i < flights.length && !stop; i++) {
-//			if(flights[i].getId().equalsIgnoreCase(id)) {
-//				gotIt = flights[i];
-//				stop = true;
-//			}
-//		}
-//		return gotIt;
-//	}
-//	public Flight searchFlightDate(String date) {
-//		boolean stop = false;
-//		Flight gotIt = null;
-//		for(int i = 0; i < flights.length && !stop; i++) {
-//			if(flights[i].getDate().equalsIgnoreCase(date)) {
-//				gotIt = flights[i];
-//				stop = true;
-//			}
-//		}
-//		return gotIt;
-//	}
-//	public Flight searchFlightDestination(String des) {
-//		boolean stop = false;
-//		Flight gotIt = null;
-//		for(int i = 0; i < flights.length && !stop; i++) {
-//			if(flights[i].getDestination().equalsIgnoreCase(des)) {
-//				gotIt = flights[i];
-//				stop = true;
-//			}
-//		}
-//		return gotIt;
-//	}
-//	//Binary Search
-//	public Flight searchFlightGate(int gate) {
-//		Flight gotIt = null;
-//		boolean keep = true;
-//		int low = 0;
-//		int high = flights.length-1;
-//		while(low <= high && keep) {
-//			int mid = (low+high)/2;
-//			if(flights[mid].getGate() < gate) {
-//				low = mid + 1;
-//			}
-//			else if(flights[mid].getGate() > gate) {
-//				high = mid - 1;
-//			}
-//			else{
-//				gotIt = flights[mid];
-//				keep = false;
-//			}
-//		}
-//		return gotIt;
-//	}
+	//	Search
+	public Flight searchFlightAirline(String air) {
+		boolean stop = false;
+		Flight current = first;
+		Flight gotIt = null;
+		while(current.getNextF() != first && !stop) {
+			if(current.getAirline().equalsIgnoreCase(air)) {
+				gotIt = current;
+				stop = true;
+			}
+			current = current.getNextF();
+		}
+
+		return gotIt;
+	}
+	public Flight searchFlightTime(String time) {
+		boolean stop = false;
+		Flight current = first;
+		Flight gotIt = null;
+		while(current.getNextF() != first && !stop) {
+			if(current.getTime().equalsIgnoreCase(time)) {
+				gotIt = current;
+				stop = true;
+			}
+			current = current.getNextF();
+		}
+
+		return gotIt;
+	}
+	public Flight searchFlightId(String id) {
+		boolean stop = false;
+		Flight current = first;
+		Flight gotIt = null;
+		while(current.getNextF() != first && !stop) {
+			if(current.getId().equalsIgnoreCase(id)) {
+				gotIt = current;
+				stop = true;
+			}
+			current = current.getNextF();
+		}
+
+		return gotIt;
+	}
+	public Flight searchFlightDate(String date) {
+		boolean stop = false;
+		Flight current = first;
+		Flight gotIt = null;
+		while(current.getNextF() != first && !stop) {
+			if(current.getDate().equalsIgnoreCase(date)) {
+				gotIt = current;
+				stop = true;
+			}
+			current = current.getNextF();
+		}
+
+		return gotIt;
+	}
+	public Flight searchFlightDestination(String des) {
+		boolean stop = false;
+		Flight current = first;
+		Flight gotIt = null;
+		while(current.getNextF() != first && !stop) {
+			if(current.getDestination().equalsIgnoreCase(des)) {
+				gotIt = current;
+				stop = true;
+			}
+			current = current.getNextF();
+		}
+
+		return gotIt;
+	}
+	public Flight searchFlightGate(int gate) {
+		boolean stop = false;
+		Flight current = first;
+		Flight gotIt = null;
+		while(current.getNextF() != first && !stop) {
+			if(current.getGate() == gate) {
+				gotIt = current;
+				stop = true;
+			}
+			current = current.getNextF();
+		}
+
+		return gotIt;
+	}
 
 	/**
 	 * @return the currentPageFlights
