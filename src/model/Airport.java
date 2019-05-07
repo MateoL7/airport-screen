@@ -23,8 +23,7 @@ public class Airport {
 
 	public Airport(int size) throws IOException {
 		randomFlightList(size);
-		shownFlights = 25;
-		currentPageFlights = 0;
+//		totalLength();
 
 	}
 
@@ -55,13 +54,6 @@ public class Airport {
 	public String[] getAirNames() {
 		return airNames;
 	}
-
-	//	/** This method returns the corresponding attribute 
-	//	 * @return the flights
-	//	 */
-	//	public LinkedList<Flight> getFlights() {
-	//		return flights;
-	//	}
 
 	/** This method returns the corresponding attribute
 	 * @return the gates
@@ -152,31 +144,100 @@ public class Airport {
 			first.setPrevF(f1);
 		}
 	}
+	
+//	public int totalLength() {
+//		Flight current = first;
+//		int sum = 0;
+//		while(current.getNextF() != first) {
+//			sum++;
+//		}
+//		return sum;
+//	}
 
 	//	//Uses Comparable
-	//	public void sortById() {
-	//		Arrays.sort(flights);
-	//		sorted = SortedBy.ID;
-	//	}
+//	public void sortById() {
+//	//		Arrays.sort(flights);
+//		if(first != null) {
+//			int counter = 0;
+//			boolean changed = true;
+//			
+//			while(changed) {
+//				changed = false; 
+//				Flight current = first;
+//				//Flight minF = first;
+//				//while(current.getNextF() != minF)
+//				while(counter <= totalLength()) {
+//					Flight nextFlight = current.getNextF();
+//					if(current.getId().compareTo(nextFlight.getId()) > 0) {
+//					//	minF = nextFlight;
+//						//Save the next and the prev flight or current
+//						Flight currentsNext = current.getNextF();
+//						Flight currentsPrev = current.getPrevF();
+//						
+//						//Exchange conections for current
+//						current.setNextF(nextFlight.getNextF());
+//						current.setPrevF(nextFlight.getPrevF());
+//						
+//						//Exchange conections for nextFlight
+//						nextFlight.setNextF(currentsNext);
+//						nextFlight.setPrevF(currentsPrev);
+//						
+//						//Condition worked
+//						changed = true;
+//					} else {
+//						current = current.getNextF();
+//					}
+//				}
+//			}
+//			
+//		}
+//	//		sorted = SortedBy.ID;
+//	}
 	//
 	//	//Selection
-	//	public void sortByDate() {
-	//		for(int I = 0; I < flights.length-1; I++) {
-	//			int minPos = I;
-	//			String minDate = flights[I].getDate();
-	//			for(int J = I+1; J < flights.length; J++) {
-	//				String compareDate = flights[J].getDate();
-	//				if(compareDate.compareTo(minDate) < 0) {
-	//					minPos = J;
-	//					minDate = compareDate;
-	//				}
-	//			}
-	//			Flight tempFlight = flights[minPos];
-	//			flights[minPos] = flights[I];
-	//			flights[I] = tempFlight;
-	//		}
-	//		sorted = SortedBy.DATE;
-	//	}
+//		public void sortByDate() {
+//	//		for(int I = 0; I < flights.length-1; I++) {
+//	//			int minPos = I;
+//	//			String minDate = flights[I].getDate();
+//	//			for(int J = I+1; J < flights.length; J++) {
+//	//				String compareDate = flights[J].getDate();
+//	//				if(compareDate.compareTo(minDate) < 0) {
+//	//					minPos = J;
+//	//					minDate = compareDate;
+//	//				}
+//	//			}
+//	//			Flight tempFlight = flights[minPos];
+//	//			flights[minPos] = flights[I];
+//	//			flights[I] = tempFlight;
+//	//		}
+//	//		sorted = SortedBy.DATE;
+//			
+//			
+////			int counter = 0;
+////			while(current.getNextF()!= first) {
+////				counter++;
+////			}
+//			for(Flight current = first; current != first; current = current.getNextF()) {
+//				Flight min = current;
+//				String minDate = current.getDate();
+//				//for(; times2 <= counter; times2++) {
+//					if(current.getNextF().getDate().compareTo(minDate) < 0) {
+//						min = current.getNextF();
+//						minDate = current.getNextF().getDate();
+//					}
+//				//}
+//				//Flight temp = min;
+//				Flight nextMin = min.getNextF();
+//				Flight prevMin = min.getPrevF();
+//				
+//				min.setNextF(first);
+//				min.setPrevF(first.getPrevF());
+//				
+//				current.setNextF(nextMin);
+//				current.setPrevF(prevMin);
+//				
+//			}
+//		}
 	//
 		//Bubble
 //		public void sortByTime() {

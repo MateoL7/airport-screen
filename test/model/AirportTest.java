@@ -54,8 +54,10 @@ class AirportTest {
 //		setupScenary2();
 //		setupScenary3();
 //		ap.sortById();
-//		for(int i = 0; i < ap.getFlights().length-1; i++) {
-//			assertTrue("Not the right place", ap.getFlights()[i].getId().compareTo(ap.getFlights()[i+1].getId()) <= 0);
+//		Flight current = ap.getFirst();
+//		while(current.getNextF() != ap.getFirst()) {
+//			assertTrue("Not the right place", current.getId().compareTo(ap.getFirst().getId()) <= 0);
+//			current = current.getNextF();
 //		}
 //	}
 //	@Test

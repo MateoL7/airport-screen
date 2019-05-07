@@ -15,7 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import model.Airport;
 import model.Flight;
-import model.SortedBy;
+
 
 public class FlightController {
 
@@ -146,15 +146,15 @@ public class FlightController {
 //		flightsTable.setItems(updateList());
 	}
 
-//	@FXML
-//	public void sortTime(ActionEvent event) {
+	@FXML
+	public void sortTime(ActionEvent event) {
 //		before = (System.currentTimeMillis());
 //		ap.sortByTime();
 //		after = (System.currentTimeMillis());
 //		time = (after-before);
 //		timeLabel.setText("Time to sort by Time: " + time + " miliseconds");
 //		flightsTable.setItems(updateList());
-//	}
+	}
 
 	public ObservableList<Flight> updateList() {
 		flight = ap.getFirst();
