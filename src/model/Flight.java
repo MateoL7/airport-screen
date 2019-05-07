@@ -30,6 +30,7 @@ public class Flight implements Comparable<Flight>{
 		gate = pGate;
 		id = pId;
 		date = pDate;
+//		nextF 
 	}
 
 	/**

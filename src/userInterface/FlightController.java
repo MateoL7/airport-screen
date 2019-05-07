@@ -83,7 +83,6 @@ public class FlightController {
 	@FXML
 	public void createFlightList(ActionEvent event) {
 				try {
-					ap.setCurrentPageFlights(0);
 					int size = Integer.parseInt(searchField.getText());
 					oFlights.clear();
 					ap.randomFlightList(size);
@@ -98,66 +97,67 @@ public class FlightController {
 
 	@FXML
 	public void SortFlightNumber(ActionEvent event) {
-//		before = (System.currentTimeMillis());
-//		ap.sortById();
-//		after = (System.currentTimeMillis());
-//		time = (after-before);
-//		timeLabel.setText("Time to sort by Flight number: " + time + " miliseconds");
-//		flightsTable.setItems(updateList());
+		before = (System.currentTimeMillis());
+		ap.sortById();
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		timeLabel.setText("Time to sort by Flight number: " + time + " miliseconds");
+		flightsTable.setItems(updateList());
 	}
 
 	@FXML
 	public void sortDate(ActionEvent event) {
-//		before = (System.currentTimeMillis());
-//		ap.sortByDate();
-//		after = (System.currentTimeMillis());
-//		time = (after-before);
-//		timeLabel.setText("Time to sort by Date: " + time + " miliseconds");
-//		flightsTable.setItems(updateList());
+		before = (System.currentTimeMillis());
+		ap.sortByDate();
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		timeLabel.setText("Time to sort by Date: " + time + " miliseconds");
+		flightsTable.setItems(updateList());
 	}
 
 	@FXML
 	public void sortAirline(ActionEvent event) {
-//		before = (System.currentTimeMillis());
-//		ap.sortByAirline();
-//		after = (System.currentTimeMillis());
-//		time = (after-before);
-//		timeLabel.setText("Time to sort by Airline: " + time + " miliseconds");
-//		flightsTable.setItems(updateList());
+		before = (System.currentTimeMillis());
+		ap.sortByAirline();
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		timeLabel.setText("Time to sort by Airline: " + time + " miliseconds");
+		flightsTable.setItems(updateList());
 	}
 
 	@FXML
 	public void sortDestination(ActionEvent event) {
-//		before = (System.currentTimeMillis());
-//		ap.sortByDestination();
-//		after = (System.currentTimeMillis());
-//		time = (after-before);
-//		timeLabel.setText("Time to sort by Destination: " + time + " miliseconds");
-//		flightsTable.setItems(updateList());
+		before = (System.currentTimeMillis());
+		ap.sortByDestination();
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		timeLabel.setText("Time to sort by Destination: " + time + " miliseconds");
+		flightsTable.setItems(updateList());
 	}
 
 	@FXML
 	public void sortGate(ActionEvent event) {
-//		before = (System.currentTimeMillis());
-//		ap.sortByGate();
-//		after = (System.currentTimeMillis());
-//		time = (after-before);
-//		timeLabel.setText("Time to sort by Gate: " + time + " miliseconds");
-//		flightsTable.setItems(updateList());
+		before = (System.currentTimeMillis());
+		ap.sortByGate();
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		timeLabel.setText("Time to sort by Gate: " + time + " miliseconds");
+		flightsTable.setItems(updateList());
 	}
 
 	@FXML
 	public void sortTime(ActionEvent event) {
-//		before = (System.currentTimeMillis());
-//		ap.sortByTime();
-//		after = (System.currentTimeMillis());
-//		time = (after-before);
-//		timeLabel.setText("Time to sort by Time: " + time + " miliseconds");
-//		flightsTable.setItems(updateList());
+		before = (System.currentTimeMillis());
+		ap.sortByTime();
+		after = (System.currentTimeMillis());
+		time = (after-before);
+		timeLabel.setText("Time to sort by Time: " + time + " miliseconds");
+		flightsTable.setItems(updateList());
 	}
 
 	public ObservableList<Flight> updateList() {
 		flight = ap.getFirst();
+		oFlights.clear();
 		if(flight != null) {
 			while((flight.getNextF() != ap.getFirst())) {
 				oFlights.add(flight);

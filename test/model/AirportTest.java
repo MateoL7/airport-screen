@@ -1,7 +1,6 @@
 package model;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 
@@ -30,63 +29,73 @@ class AirportTest {
 		String msg = ap.time(x);
 		assertTrue("Not the right value", msg.equalsIgnoreCase("am"));
 	}
-//
-//	@Test
-//	public void testSortByGate() throws IOException {
-//		setupScenary2();
-//		setupScenary3();
-//		ap.sortByGate();
-//		for(int i = 0; i < ap.getFlights().length-1; i++) {
-//			assertTrue("Not the right place", ap.getFlights()[i].getGate() <= ap.getFlights()[i+1].getGate());
-//		}
-//	}
-//	@Test
-//	public void testSortByDate() throws IOException {
-//		setupScenary2();
-//		setupScenary3();
-//		ap.sortByDate();
-//		for(int i = 0; i < ap.getFlights().length-1; i++) {
-//			assertTrue("Not the right place", ap.getFlights()[i].getDate().compareTo(ap.getFlights()[i+1].getDate()) <= 0);
-//		}
-//	}
-//	@Test
-//	public void testSortById() throws IOException {
-//		setupScenary2();
-//		setupScenary3();
-//		ap.sortById();
-//		Flight current = ap.getFirst();
-//		while(current.getNextF() != ap.getFirst()) {
-//			assertTrue("Not the right place", current.getId().compareTo(ap.getFirst().getId()) <= 0);
-//			current = current.getNextF();
-//		}
-//	}
-//	@Test
-//	public void testSortByDestination() throws IOException {
-//		setupScenary2();
-//		setupScenary3();
-//		ap.sortByDestination();
-//		for(int i = 0; i < ap.getFlights().length-1; i++) {
-//			assertTrue("Not the right place", ap.getFlights()[i].getDestination().compareTo(ap.getFlights()[i+1].getDestination()) <= 0);
-//		}
-//	}
-//	@Test
-//	public void testSortByAirline() throws IOException {
-//		setupScenary2();
-//		setupScenary3();
-//		ap.sortByAirline();
-//		for(int i = 0; i < ap.getFlights().length-1; i++) {
-//			assertTrue("Not the right place", ap.getFlights()[i].getAirline().compareTo(ap.getFlights()[i+1].getAirline()) <= 0);
-//		}
-//	}
-//	@Test
-//	public void testSortByTime() throws IOException {
-//		setupScenary2();
-//		setupScenary3();
-//		ap.sortByTime();
-//		for(int i = 0; i < ap.getFlights().length-1; i++) {
-//			assertTrue("Not the right place", ap.getFlights()[i].getTime().compareTo(ap.getFlights()[i+1].getTime()) <= 0);
-//		}
-//	}
+
+	@Test
+	public void testSortByGate() throws IOException {
+		setupScenary2();
+		setupScenary3();
+		ap.sortByGate();
+		Flight current = ap.getFirst();
+		do {
+			assertTrue("Not the right place", current.getGate() <= current.getNextF().getGate() );
+			current = current.getNextF();
+		} while(current.getNextF() != ap.getFirst());
+	}
+	@Test
+	public void testSortByDate() throws IOException {
+		setupScenary2();
+		setupScenary3();
+		ap.sortByDate();
+		Flight current = ap.getFirst();
+		do {
+			assertTrue("Not the right place", current.getDate().compareTo(current.getNextF().getDate()) <= 0);
+			current = current.getNextF();
+		} while(current.getNextF() != ap.getFirst());
+	}
+	@Test
+	public void testSortById() throws IOException {
+		setupScenary2();
+		setupScenary3();
+		ap.sortById();
+		Flight current = ap.getFirst();
+		do {
+			assertTrue("Not the right place", current.getId().compareTo(current.getNextF().getId()) <= 0);
+			current = current.getNextF();
+		} while(current.getNextF() != ap.getFirst());
+	}
+	@Test
+	public void testSortByDestination() throws IOException {
+		setupScenary2();
+		setupScenary3();
+		ap.sortByDestination();
+		Flight current = ap.getFirst();
+		do {
+			assertTrue("Not the right place", current.getDestination().compareTo(current.getNextF().getDestination()) <= 0);
+			current = current.getNextF();
+		} while(current.getNextF() != ap.getFirst());
+	}
+	@Test
+	public void testSortByAirline() throws IOException {
+		setupScenary2();
+		setupScenary3();
+		ap.sortByAirline();
+		Flight current = ap.getFirst();
+		do {
+			assertTrue("Not the right place", current.getAirline().compareTo(current.getNextF().getAirline()) <= 0);
+			current = current.getNextF();
+		} while(current.getNextF() != ap.getFirst());
+	}
+	@Test
+	public void testSortByTime() throws IOException {
+		setupScenary2();
+		setupScenary3();
+		ap.sortByTime();
+		Flight current = ap.getFirst();
+		do {
+			assertTrue("Not the right place", current.getTime().compareTo(current.getNextF().getTime()) <= 0);
+			current = current.getNextF();
+		} while(current.getNextF() != ap.getFirst());
+	}
 	@Test
 	public void testSearchFlightTime() throws IOException {
 		setupScenary2();
