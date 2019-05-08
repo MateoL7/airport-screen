@@ -392,7 +392,10 @@ public class Airport {
 		}
 
 	}
-
+	/** This method provides a complement for the random time. It provides the AM or PM 
+	 * part of the string
+	 * 
+	 */
 	public String time(double d) {
 		String msg = "PM";
 		if(d >= 100.0) {
